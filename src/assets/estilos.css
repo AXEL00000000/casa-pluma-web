@@ -1,0 +1,66 @@
+:root {
+  --cereza: #9b1c2e;
+  --cereza-oscura: #6e1220;
+  --hoja: #2f5a3c;
+  --oro: #d9a033;
+  --papel: #f4f1ec;
+  --blanco: #ffffff;
+  --tinta: #221a17;
+  --tenue: #675c57;
+  --linea: #dcd5cc;
+  --suave: #ebe6df;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --texto: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--texto); color: var(--tinta); background: var(--papel); line-height: 1.5; font-size: 15.5px; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.05; margin: 0; letter-spacing: -0.02em; }
+a { color: inherit; }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--oro); outline-offset: 2px; }
+.num { font-variant-numeric: tabular-nums; }
+.envoltura { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+/* Barra superior */
+.barra { position: sticky; top: 0; z-index: 30; background: var(--cereza); color: var(--papel); }
+.barra .envoltura { display: flex; align-items: center; justify-content: space-between; height: 62px; gap: 16px; }
+.marca { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--display); font-weight: 750; font-size: 1.25rem; }
+.marca svg { width: 24px; height: 24px; }
+.menu { display: flex; align-items: center; gap: 6px; }
+.menu a, .menu button { text-decoration: none; font-weight: 600; font-size: .92rem; padding: 7px 14px; border-radius: 999px; background: none; border: 0; cursor: pointer; color: var(--papel); opacity: .9; }
+.menu a:hover, .menu button:hover { opacity: 1; background: rgba(255, 255, 255, .1); }
+.menu a.router-link-exact-active { background: var(--papel); color: var(--cereza); opacity: 1; }
+.usuario { font-size: .85rem; opacity: .8; margin-left: 8px; }
+
+/* Botones */
+.boton { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; padding: 10px 20px; border-radius: 999px; border: 2px solid transparent; cursor: pointer; text-decoration: none; }
+.boton-primario { background: var(--cereza); color: var(--papel); }
+.boton-primario:hover { background: var(--cereza-oscura); }
+.boton-borde { border-color: var(--tinta); background: transparent; }
+.boton-borde:hover { background: var(--tinta); color: var(--papel); }
+.boton:disabled { opacity: .55; cursor: wait; }
+
+/* Tarjetas y paneles */
+.tarjeta { background: var(--blanco); border: 1px solid var(--linea); border-radius: 8px; }
+.aviso { background: #fff7e6; border: 1px solid #ecd5a3; color: #6b4e12; border-radius: 6px; padding: 10px 14px; font-size: .9rem; }
+.error { background: #fbe9eb; border: 1px solid #e7b8bf; color: var(--cereza-oscura); border-radius: 6px; padding: 10px 14px; }
+.etiqueta-simulado { display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--tenue); border: 1.5px dashed var(--tenue); border-radius: 4px; padding: 1px 7px; }
+
+/* Insignias de prioridad */
+.prioridad { display: inline-block; font-size: .74rem; font-weight: 800; letter-spacing: .04em; padding: 3px 9px; border-radius: 4px; white-space: nowrap; }
+.p-ALTA { background: var(--cereza); color: var(--papel); }
+.p-MEDIA { background: var(--oro); color: var(--tinta); }
+.p-BAJA { background: #dfe8e1; color: var(--hoja); }
+.p-SIN-DATOS { background: transparent; color: var(--tenue); border: 1.5px dashed var(--tenue); }
+
+/* Tablas */
+.tabla { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.tabla th { text-align: left; font-size: .74rem; text-transform: uppercase; letter-spacing: .05em; color: var(--tenue); font-weight: 700; padding: 10px 12px; border-bottom: 2px solid var(--tinta); white-space: nowrap; }
+.tabla td { padding: 11px 12px; border-bottom: 1px solid var(--suave); vertical-align: middle; }
+.tabla tbody tr.clic { cursor: pointer; }
+.tabla tbody tr.clic:hover { background: #faf8f5; }
+.tabla .der { text-align: right; }
+.contenedor-tabla { overflow-x: auto; }
+
+.cargando { color: var(--tenue); padding: 40px 0; text-align: center; }
