@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onMounted, ref } from "vue";
 import { api, mensajeError } from "../services/api";
+import { agregar, enCarrito, pesos } from "../services/carrito";
 
 const productos = ref([]);
 const error = ref("");
@@ -14,7 +15,6 @@ const COLORES = {
   "Los Naranjos": ["#221A17", "#E2D3D5"],
 };
 const color = (p) => COLORES[p.lote] || ["#675C57", "#EBE6DF"];
-const pesos = (n) => n.toLocaleString("es-MX", { style: "currency", currency: "MXN", maximumFractionDigits: 0 });
 const visibles = computed(() => productos.value.filter((p) => filtro.value === "Todos" || p.categoria === filtro.value));
 
 onMounted(async () => {
@@ -68,7 +68,8 @@ onMounted(async () => {
           <span class="disp" :class="'d-' + p.disponibilidad.replace(/\s|ú/g, '')">{{ p.disponibilidad }}</span>
           <div class="pie">
             <strong class="num">{{ pesos(p.precio) }}</strong>
-            <button class="agregar" type="button" :disabled="p.disponibilidad === 'Agotado'">Agregar</button>
+            <button class="agregar" type="button" :disabled="!p.maximo_pedido || enCarrito(p.id_producto) >= p.maximo_pedido"
+              @click="agregar(p)">{{ !p.maximo_pedido ? "No disponible" : enCarrito(p.id_producto) ? `En carrito (${enCarrito(p.id_producto)})` : "Agregar" }}</button>
           </div>
         </div>
       </article>

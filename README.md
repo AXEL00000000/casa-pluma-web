@@ -10,9 +10,10 @@ Consume la API `casa-pluma-api` (repositorio del back). Proyecto integrador de *
 
 | Ruta | Qué muestra |
 | --- | --- |
-| `/` | Tienda: catálogo con disponibilidad (público). |
+| `/` | Tienda: catálogo con disponibilidad y botón para agregar al carrito (público). |
+| `/carrito` | Carrito y pedido simulado: al confirmarlo se registra como venta del canal Web y el panel se actualiza. |
 | `/login` | Inicio de sesión (JWT). |
-| `/panel` | **Módulo DSS**: indicadores, escenarios de demanda (−20 %, normal, +20 % o libre), margen de seguridad, filtros, tabla priorizada con cobertura frente a reposición, y detalle con la explicación y trazabilidad de cada recomendación. |
+| `/panel` | **Módulo DSS**: indicadores, escenarios de demanda (−20 %, normal, +20 %), margen de seguridad, gráfica que compara la demanda normal contra el escenario, filtros, tabla priorizada con cobertura frente a reposición, y detalle con la explicación y trazabilidad de cada recomendación. |
 | `/panel/etl` | Ejecutar el ETL y ver extraídos/cargados, transformaciones (antes → después), validaciones, rechazados, en revisión y las fuentes originales. |
 
 ## Cómo correrlo

@@ -6,6 +6,7 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: "/", name: "tienda", component: TiendaView },
+    { path: "/carrito", name: "carrito", component: () => import("../views/CarritoView.vue") },
     { path: "/login", name: "login", component: () => import("../views/LoginView.vue") },
     { path: "/panel", name: "panel", component: () => import("../views/PanelView.vue"), meta: { privada: true } },
     { path: "/panel/etl", name: "etl", component: () => import("../views/EtlView.vue"), meta: { privada: true } },

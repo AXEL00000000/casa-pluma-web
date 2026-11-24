@@ -2,6 +2,7 @@
 import { computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { sesion, cerrarSesion } from "./services/api";
+import { piezas } from "./services/carrito";
 
 const route = useRoute();
 const router = useRouter();
@@ -22,6 +23,7 @@ function salir() {
       </RouterLink>
       <nav class="menu">
         <RouterLink to="/">Tienda</RouterLink>
+        <RouterLink to="/carrito">Carrito<span v-if="piezas" class="contador num">{{ piezas }}</span></RouterLink>
         <template v-if="usuario">
           <RouterLink to="/panel">Reabastecimiento</RouterLink>
           <RouterLink to="/panel/etl">Datos y ETL</RouterLink>
